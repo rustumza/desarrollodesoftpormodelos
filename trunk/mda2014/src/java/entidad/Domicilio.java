@@ -11,19 +11,23 @@ package entidad;
  * @author rustu
  */
 public class Domicilio {
+    private int id;
     private String calle;
     private int numero;
-    private int codigoPostal;
+    private String dpto;
 
-    public Domicilio(String calle, int numero, int codigoPostal) {
+    public Domicilio(String calle, int numero, String dpto) {
         this.calle = calle;
         this.numero = numero;
-        this.codigoPostal = codigoPostal;
+        this.dpto = dpto;
     }
 
     public Domicilio() {
     }
-
+    
+    public Domicilio(int id) {
+        this.id = id;
+    }
     
     
     public String getCalle() {
@@ -42,13 +46,20 @@ public class Domicilio {
         this.numero = numero;
     }
 
-    public int getCodigoPostal() {
-        return codigoPostal;
+    public String getDpto() {
+        return dpto;
     }
 
-    public void setCodigoPostal(int codigoPostal) {
-        this.codigoPostal = codigoPostal;
+    public void setDpto(String dpto) {
+        this.dpto = dpto;
     }
-    
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+     
 }
