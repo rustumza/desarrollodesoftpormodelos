@@ -1,6 +1,6 @@
 $(function(){
   var url = "http://localhost:8084/mda2014/servicios/servicioPersona.jsp";
-  $.ajax({
+  $.ajax({ 
       type: 'GET',
       url: url,
       dataType: 'json',
