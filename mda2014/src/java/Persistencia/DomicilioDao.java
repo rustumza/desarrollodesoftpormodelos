@@ -52,7 +52,7 @@ public class DomicilioDao {
             Domicilio dom = new Domicilio();
             dom.setId(rs.getInt("id"));
             dom.setCalle(rs.getString("calle"));
-            dom.setNumero(rs.getInt("numero"));
+            dom.setNumero(rs.getInt("nro"));
             dom.setDpto(rs.getString("dpto"));                
             return dom;
         } catch (SQLException ex) {
