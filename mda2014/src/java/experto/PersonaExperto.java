@@ -23,26 +23,33 @@ import java.util.logging.Logger;
 public class PersonaExperto {
     
     PersonaDao personaDao;
+    GenericDao<Persona> genericDao;
 
     public PersonaExperto() {
         personaDao = new PersonaDao();
+        genericDao = new GenericDao<>();
     }
     
         
     public List<Persona> getPersona(){
-        List<Persona> lista = personaDao.findAll();
+        //List<Persona> lista = personaDao.findAll();
+        List<Persona> lista = genericDao.buscarTodos(Persona.class);
         System.out.println(new Gson().toJsonTree(lista));
         return lista;
     }
     
     public static void main(String[] args) {
+        
+        
         new PersonaExperto().guardar2();
     }
     
     public void guardar2(){
-        Persona per = new Persona();
-        per.setDomicilio(new Domicilio());
-        new GenericDao().guardar(per);
+        Persona dom = (Persona)new GenericDao().buscarPorID(1, Persona.class);
+        System.out.println(dom);
+//        Persona per = new Persona();
+//        per.setDomicilio(new Domicilio());
+//        new GenericDao().guardar(per);
     }
     
     public boolean guardar(){
