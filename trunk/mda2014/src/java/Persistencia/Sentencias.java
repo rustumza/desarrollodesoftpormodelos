@@ -14,6 +14,6 @@ public interface Sentencias {
  
     public final String consulta1 = "select * from persona";
     public final String consulta2 = "select * from persona where id = ?";
-    public final String consulta3 = "select * from direccion";
-    public final String consulta4 = "select * from persona where id = ?";
+    public final String consulta3 = "select * from domicilio";
+    public final String consulta4 = "select * from domicilio where id = ?";
 }

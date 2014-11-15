@@ -11,6 +11,6 @@
     //salida es la respuesta a la peticion
     PrintWriter salida = response.getWriter();
     //libreria Gson -> genera json a partir de un objeto
-    salida.println(new Gson().toJson(lista));
+    salida.println(new Gson().toJsonTree(lista));
     salida.close();
 %>  
