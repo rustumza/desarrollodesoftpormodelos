@@ -5,20 +5,21 @@
  */
 
 package entidad;
-
+import com.google.gson.Gson;
 /**
  *
  * @author rustu
  */
 public class Domicilio {
+    
     private int id;
     private String calle;
-    private int numero;
+    private int nro;
     private String dpto;
 
-    public Domicilio(String calle, int numero, String dpto) {
+    public Domicilio(String calle, int nro, String dpto) {
         this.calle = calle;
-        this.numero = numero;
+        this.nro = nro;
         this.dpto = dpto;
     }
 
@@ -38,13 +39,14 @@ public class Domicilio {
         this.calle = calle;
     }
 
-    public int getNumero() {
-        return numero;
+    public int getNro() {
+        return nro;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setNro(int nro) {
+        this.nro = nro;
     }
+
 
     public String getDpto() {
         return dpto;

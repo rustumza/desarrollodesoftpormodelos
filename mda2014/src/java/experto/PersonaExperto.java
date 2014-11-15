@@ -8,6 +8,7 @@ package experto;
 
 import Persistencia.GenericDao;
 import Persistencia.PersonaDao;
+import com.google.gson.Gson;
 import entidad.Domicilio;
 import entidad.Persona;
 import java.lang.reflect.Field;
@@ -29,7 +30,9 @@ public class PersonaExperto {
     
         
     public List<Persona> getPersona(){
-        return personaDao.findAll();
+        List<Persona> lista = personaDao.findAll();
+        System.out.println(new Gson().toJsonTree(lista));
+        return lista;
     }
     
     public static void main(String[] args) {
@@ -37,7 +40,9 @@ public class PersonaExperto {
     }
     
     public void guardar2(){
-        new GenericDao().guardar(new Domicilio());
+        Persona per = new Persona();
+        per.setDomicilio(new Domicilio());
+        new GenericDao().guardar(per);
     }
     
     public boolean guardar(){

@@ -29,6 +29,7 @@ public class PersonaDao {
     
     public List<Persona> findAll(){
         List<Persona> lista = new ArrayList<Persona>();
+        System.out.println("findall");
         try {
             ResultSet rs = ConectorBD.estableceConexion().createStatement().executeQuery(Sentencias.consulta1);
             Persona per = null;            
@@ -41,7 +42,8 @@ public class PersonaDao {
                 per.setEdad(rs.getInt("edad"));
                 per.setDocumento(rs.getString("documento"));
                 lista.add(per);
-            }            
+            }        
+            System.out.println("findall " + lista.size());
             return lista;
         } catch (SQLException ex) {
             ex.printStackTrace();
