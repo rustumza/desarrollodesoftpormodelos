@@ -5,7 +5,7 @@
  */
 
 package entidad;
-import com.google.gson.Gson;
+
 /**
  *
  * @author rustu

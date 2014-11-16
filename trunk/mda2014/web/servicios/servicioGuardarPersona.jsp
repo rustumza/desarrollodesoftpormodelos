@@ -6,7 +6,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%     
-   
+    System.out.println( request.getReader());
     List<Persona> lista = new PersonaExperto().getPersonas();
     //salida es la respuesta a la peticion
     PrintWriter salida = response.getWriter();
