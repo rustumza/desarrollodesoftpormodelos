@@ -87,7 +87,7 @@ $(function() {
         };
 
         app.SavePerson = function(persona) {
-            var serviceUrl = "http://localhost:8084/mda2014/servicios/servicioPersonaGuardar.jsp";
+            var serviceUrl = "http://localhost:8084/mda2014/servicios/servicioGuardarPersona.jsp";
 
             var personJson = ko.toJS(persona);
 
