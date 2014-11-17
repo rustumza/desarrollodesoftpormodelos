@@ -17,7 +17,7 @@ public class ConectorBD {
     /** La conexion con la base de datos */
     private static Connection conexion = null;
     private static String user = "root";
-    private static String password = "";
+    private static String password = "root";
     private static String puerto = "3306";
     private static String catalogo = "mda2014";
     private static String host = "localhost";

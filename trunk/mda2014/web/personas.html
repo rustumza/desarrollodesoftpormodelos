@@ -2,160 +2,160 @@
 <!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
 <html lang="en-us">
 
-<head>
-    <meta charset="utf-8">
-    <title>Personas ABM</title>
+    <head>
+        <meta charset="utf-8">
+        <title>Personas ABM</title>
 
-    <link rel="stylesheet" href="resources/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/bootstrap/bootstrap-theme.min.css">
-    <style type="text/css">
-        .right {
-            text-align: right;
-        }
-    </style>
-</head>
+        <link rel="stylesheet" href="resources/css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/css/bootstrap/bootstrap-theme.min.css">
+        <style type="text/css">
+            .right {
+                text-align: right;
+            }
+        </style>
+    </head>
 
-<body data-bind="with: ViewModel">
-    <div class="container">
+    <body data-bind="with: ViewModel">
+        <div class="container">
 
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Personas</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Personas</h1>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div id="alert" class="alert alert-warning" role="alert" data-bind="visible: isAlertVisible">
-                    <button type="button" class="close"><span aria-hidden="true" data-bind="click: $root.CloseAlert">&times;</span><span class="sr-only">Close</span></button>
-                    <strong data-bind="text: alertTitle"></strong> <span data-bind="text: alertMessaje"></span>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="alert" class="alert alert-warning" role="alert" data-bind="visible: isAlertVisible">
+                        <button type="button" class="close"><span aria-hidden="true" data-bind="click: $root.CloseAlert">&times;</span><span class="sr-only">Close</span></button>
+                        <strong data-bind="text: alertTitle"></strong> <span data-bind="text: alertMessaje"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 right">
+                    <button type="button" class="btn btn-primary" data-bind="click: $root.NewPerson"> <span class="glyphicon glyphicon-plus"></span> Nueva</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>DNI</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: personsGrid">
+                            <tr>
+                                <td data-bind="text: nombre"></td>
+                                <td data-bind="text: apellido"></td>
+                                <td data-bind="text: documento"></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary" data-bind="click: $root.EditPerson"><span class="glyphicon glyphicon-pencil"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-danger" data-bind="click: $root.ShowDeletePersonMessage"><span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 right">
-                <button type="button" class="btn btn-primary" data-bind="click: $root.NewPerson"> <span class="glyphicon glyphicon-plus"></span> Nueva</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>DNI</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody data-bind="foreach: personsGrid">
-                        <tr>
-                            <td data-bind="text: nombre"></td>
-                            <td data-bind="text: apellido"></td>
-                            <td data-bind="text: documento"></td>
-                            <td>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary" data-bind="click: $root.EditPerson"><span class="glyphicon glyphicon-pencil"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-bind="click: $root.ShowDeletePersonMessage"><span class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
 
-    <div id="personModal" class="modal fade" data-bind="with: selectedPerson">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title" data-bind="text: $parent.modalTitle"></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4>Datos personales</h4>
-                            <form role="form">
-                                <div class="form-group">
-                                    <label for="name">Nombre:</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Ej. Guillermo" data-bind="value:nombre">
-                                </div>
+        <div id="personModal" class="modal fade" data-bind="with: selectedPerson">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title" data-bind="text: $parent.modalTitle"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Datos personales</h4>
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label for="name">Nombre:</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Ej. Guillermo" data-bind="value:nombre">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="name">Apellido:</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Ej. Puntons" data-bind="value:apellido">
-                                </div>
+                                    <div class="form-group">
+                                        <label for="name">Apellido:</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Ej. Puntons" data-bind="value:apellido">
+                                    </div>
 
-                                <div class="form-group">
-                                    <label for="dni">DNI:</label>
-                                    <input type="text" class="form-control" id="dni" placeholder="Ej. 32879524" data-bind="value:dni">
-                                </div>
-                            </form>
+                                    <div class="form-group">
+                                        <label for="dni">DNI:</label>
+                                        <input type="text" class="form-control" id="dni" placeholder="Ej. 32879524" data-bind="value:documento">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Domicilio</h4>
+                                <form role="form" data-bind="with: domicilio">
+                                    <div class="form-group">
+                                        <label for="street">Calle:</label>
+                                        <input type="text" class="form-control" id="street" placeholder="Ej. San Martín" data-bind="value:calle">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="number">Número:</label>
+                                        <input type="text" class="form-control" id="number" placeholder="Ej. 327" data-bind="value:nro">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4>Domicilio</h4>
-                            <form role="form" data-bind="with: address">
-                                <div class="form-group">
-                                    <label for="street">Calle:</label>
-                                    <input type="text" class="form-control" id="street" placeholder="Ej. San Martín" data-bind="value:street">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="number">Número:</label>
-                                    <input type="text" class="form-control" id="number" placeholder="Ej. 327" data-bind="value:number">
-                                </div>
-                            </form>
+                    <div class="modal-footer">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" data-bind="click: $root.SavePerson">Guardar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary" data-bind="click: $root.SavePerson">Guardar</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    </div>
-                </div>
+                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-content -->
+            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
-    
-    
-    <div id="DeletPersonModal" class="modal fade" data-bind="with: selectedPerson">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title">Eliminar Persona</h4>
-                </div>
-                <div class="modal-body">
-                    <h5>Va a eliminar la persona:  <strong data-bind="text: nombre() + apellido()"></strong> </h5>
-                </div>
-                <div class="modal-footer">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary" data-bind="click: $root.DeletePerson">Aceptar</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    </div>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
+        <!-- /.modal -->
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="libs/js/bootstrap/bootstrap.js"></script>
-    <script src="libs/js/Knockout/knockout-3.2.0.js"></script>
-    <script src="libs/js/personas.js"></script>
-</body>
+
+        <div id="DeletPersonModal" class="modal fade" data-bind="with: selectedPerson">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title">Eliminar Persona</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Va a eliminar la persona:  <strong data-bind="text: nombre() + apellido()"></strong> </h5>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" data-bind="click: $root.DeletePerson">Aceptar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="libs/js/bootstrap/bootstrap.js"></script>
+        <script src="libs/js/Knockout/knockout-3.2.0.js"></script>
+        <script src="libs/js/personas.js"></script>
+    </body>
 
 </html>
