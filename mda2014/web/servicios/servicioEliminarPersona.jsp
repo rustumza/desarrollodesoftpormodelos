@@ -26,7 +26,7 @@
     persona.getDomicilio().setCalle(request.getParameterValues("domicilio[calle]")[0]);
     persona.getDomicilio().setNro(Integer.parseInt(request.getParameterValues("domicilio[nro]")[0]));
 
-    new PersonaExperto().guardar(persona);
+    new PersonaExperto().eliminar(persona);
 
     //salida es la respuesta a la peticion
     PrintWriter salida = response.getWriter();
